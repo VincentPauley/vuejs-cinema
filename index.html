@@ -18,12 +18,10 @@
         <img src="/public/logo.png">
         <h1>Vue.js Cinema</h1>
     </div>
-    <div id="overview">
-      <div id="main">
-        <movie-list></movie-list>
-        <movie-filter></movie-filter>
-      </div>
-    </div>
+    <!-- keep-alive ensures that child components are not altered when another route is rendered -->
+    <keep-alive>
+      <router-view v-bind:genre='genre' v-bind:time="time" v-bind:day="day" v-bind:movies="movies"></router-view>
+    </keep-alive>
 </div>
 <script src="/dist/build.js"></script>
 </body>
